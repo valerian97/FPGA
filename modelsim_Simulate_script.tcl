@@ -1,8 +1,8 @@
 #Script to automatically read all module inputs, force clocks on them and run simulation
-
+#Version: 0.2.2
 #note use [MSB:LSB] bit order in input declaration
 
-# Set module name for simulation
+# !!!Set the module name here
 set module_name "ripple_carry_adder";
 # simulate the module
 vsim $module_name;
@@ -12,7 +12,10 @@ add wave *
 # Get the list of instance paths (top level module only)
 set input_ports [ list ];
 set input_ports_ [find nets -in /$module_name/*] ;
-set input_ports [ split $input_ports_ " " ]
+set input_ports__ [ split $input_ports_ " " ]
+
+set input_ports [ lreverse $input_ports__ ]
+
 # set the counter (used to force clock period in powers of 2. eg: 100,200,400,800)
 set counter 0;
 # set the base clock (for the signals to be forced)
@@ -34,11 +37,15 @@ foreach input_port $input_ports {
 		puts $input_port;
 		puts "is a multi bit port";
 		#Get the HSB by taking a substring of the description. 
-		set msb [string range $port_description [expr {[string first "Net " $port_description] + 5}] [expr {[string first ":" $port_description] - 1 }]]
+		set msb [string range $port_description [expr {[string first "\[" $port_description] + 1}] [expr {[string first ":" $port_description] - 1 }]]
 		puts "With msb"
 		puts $msb
+		#Get the HSB by taking a substring of the description. 
+		set lsb [string range $port_description [expr {[string first ":" $port_description] + 1 }] [expr {[string first "\]" $port_description] - 1 }]]
+		puts "With lsb"
+		puts $lsb
 		#force signals on each input, from lsb to msb
-		for {set i 0} {$i <= $msb} {incr i} {
+		for {set i $lsb} {$i <= $msb} {incr i} {
 			#increment counter for each bit
 			incr counter;
 			#add the bit to the input port path by appending [$i]
