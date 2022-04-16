@@ -6,8 +6,18 @@
 #do simulate.tcl
 
 #!! Set the module name for simulation here 
-set module_name "DFlipFlop";
-vsim $module_name;
+if { $argc != 1 } {
+    puts "This tcl script requires module name (to be simulated) to be inputed."
+    puts "For example, tclsh simulate_script.tcl full_adder".
+    puts "Please try again."
+	#Terminate the script with error code 1
+	exit 1
+} else {
+	puts "Module name for simulation:";
+    puts expr [lindex $argv 0]
+    }
+
+set module_name [lindex $argv 0]
 
 #add nets to wave
 add wave *;
