@@ -21,4 +21,4 @@
 ![On completion of execution](Markdown_res/User_Input_2.PNG "On completion of execution")
 
 ## TODO:
-- Modulize the code by making use of procedure blocks
+- Modularize the code by making use of procedure blocks
