@@ -8,4 +8,4 @@
 
 # Usage:
 - Copy the simulate.tcl script to project folder such it in present in the same folder as the verilog source files containing the modules to be simulated.
-![Copying the script](Markdown_res/User_Input_0 "Copy the script to project folder")
+![Copying the script](Markdown_res/User_Input_0.png "Copy the script to project folder")
