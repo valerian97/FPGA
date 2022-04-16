@@ -7,6 +7,7 @@
 - Finally, after the script completes execution, it will wait for user input to exit simulation.
 
 ## Usage:
+- Ensure that the modules you want to simulate have been compiled in Modelsim/Questa Sim.
 - Copy the simulate.tcl script to project folder such it in present in the same folder as the verilog source files containing the modules to be simulated.
 \
 ![Copying the script](Markdown_res/User_Input_0.PNG "Copy the script to project folder")
