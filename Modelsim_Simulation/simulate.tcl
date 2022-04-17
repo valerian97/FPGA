@@ -1,5 +1,5 @@
 #Script to automatically read all module inputs, force clocks on them and run simulation
-#Version: 0.3.2
+#Version: 0.4.4
 
 #Note: Use [MSB:LSB] bit order in input declaration
 #To Run: Give following command
@@ -23,6 +23,10 @@ set input_ports__ [ split $input_ports_ " " ];
 
 set input_ports [ lreverse $input_ports__ ];
 
+# delay in ps after which clock is to be forced
+# it'll be 10 for sequential cirucits 
+# and 0 for combination circuits
+set clock_delay 0
 #search for clock signal
 set search_idx 0;
 puts "Begining clear for clock signal...";
@@ -32,6 +36,7 @@ foreach input_port $input_ports {
 	] then {
 	puts "Clock signal found!";
 	puts $input_port;
+	set clock_delay 10
 	# Swap signals at index 0 and current index (search_idx)
 	# get the clock port 
 	set clock_port $input_port;
@@ -58,6 +63,17 @@ set input_port "";
 puts "Forcing clocks on ports....";
 puts "The input ports are:";
 puts $input_ports
+
+if [
+	expr {$clock_delay == 10}
+	] then {
+	set clk_port [lindex $input_ports 0];
+	set time1 [expr {$clock_base*pow(2,0)/2}];
+	set time2 [expr {$clock_base*pow(2,0)}];
+    force -freeze sim:$clk_port 1 0, 0 $time1 -r $time2;
+	run $clock_delay
+	} 
+
 foreach input_port $input_ports {
 	#inputs will be nets. 
 	#if its single bit, description will be 
@@ -108,7 +124,14 @@ foreach input_port $input_ports {
 		#add time unit
 		append time1 " ps"
 		#force clock
-		force -freeze sim:$input_port 1 0, 0 $time1 -r $time2;
+			if [
+			regexp -nocase {.*clk$} $input_port matchresult
+			] then {
+			# don't do anything if there is clk
+			} else {
+			force -freeze sim:$input_port 1 0, 0 $time1 -r $time2;
+			}
+		
 	}
 } 
 # set input nets(path)
