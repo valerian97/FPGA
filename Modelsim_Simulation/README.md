@@ -2,7 +2,7 @@
 
 ## Overview:
 - TCL script to determine all the input ports of a module and force clock signals on each port in increasing powers of 2. (For Example, 100 ps,200 ps, 400 ps etc.)
-- Script also checks if any of the input signals are named "clk". If found, the "clk" signal will be assignment the signal with highest frequency. (ie: 100 ps) 
+- Script also checks if any of the input signals are named "clk". If found, the "clk" signal will be assignment the signal with highest frequency. (ie: 100 ps) and other signals will be forced 10 ps after the clock signal begins.
 - Script will then run the simulation.
 - Finally, after the script completes execution, it will wait for user input to exit simulation.
 
