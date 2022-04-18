@@ -1,0 +1,282 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x54F7C1168990427C",
+      "device": "xc7a35tftg256-1",
+      "gen_directory": "../../../../ch7_3_SevenSegDisp.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "display_ctrl_0": "",
+      "main_0": ""
+    },
+    "ports": {
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "sw": {
+        "direction": "I",
+        "left": "4",
+        "right": "0"
+      },
+      "Seven_Seg": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "digit_sel": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "led": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "xci_path": "ip\\design_1_clk_wiz_0_0\\design_1_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "200.0"
+          },
+          "CLKOUT1_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "943.481"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "919.522"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "5"
+          },
+          "CLKOUT1_USED": {
+            "value": "true"
+          },
+          "CLKOUT2_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT3_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT4_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT5_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT6_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLKOUT7_DRIVES": {
+            "value": "BUFG"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk_5MHz"
+          },
+          "FEEDBACK_SOURCE": {
+            "value": "FDBK_AUTO"
+          },
+          "MMCM_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "64.000"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "20.000"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.0"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "128.000"
+          },
+          "MMCM_COMPENSATION": {
+            "value": "ZHOLD"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "OVERRIDE_MMCM": {
+            "value": "false"
+          },
+          "PRIMITIVE": {
+            "value": "MMCM"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "reset"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "display_ctrl_0": {
+        "vlnv": "xilinx.com:module_ref:display_ctrl:1.0",
+        "xci_name": "design_1_display_ctrl_0_0",
+        "xci_path": "ip\\design_1_display_ctrl_0_0\\design_1_display_ctrl_0_0.xci",
+        "inst_hier_path": "display_ctrl_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "display_ctrl",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_5Mhz": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "5000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "clk_locked": {
+            "direction": "I"
+          },
+          "display_select": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      },
+      "main_0": {
+        "vlnv": "xilinx.com:module_ref:main:1.0",
+        "xci_name": "design_1_main_0_1",
+        "xci_path": "ip\\design_1_main_0_1\\design_1_main_0_1.xci",
+        "inst_hier_path": "main_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "main",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "switch": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "seven_7": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "output_led": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_wiz_0_clk_5MHz": {
+        "ports": [
+          "clk_wiz_0/clk_5MHz",
+          "display_ctrl_0/clk_5Mhz"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "display_ctrl_0/clk_locked"
+        ]
+      },
+      "display_ctrl_0_display_select": {
+        "ports": [
+          "display_ctrl_0/display_select",
+          "digit_sel"
+        ]
+      },
+      "main_0_output_led": {
+        "ports": [
+          "main_0/output_led",
+          "led"
+        ]
+      },
+      "main_0_seven_7": {
+        "ports": [
+          "main_0/seven_7",
+          "Seven_Seg"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "clk_wiz_0/reset"
+        ]
+      },
+      "sw_1": {
+        "ports": [
+          "sw",
+          "main_0/switch"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz_0/clk_in1"
+        ]
+      }
+    }
+  }
+}
