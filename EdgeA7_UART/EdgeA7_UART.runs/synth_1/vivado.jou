@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Mon Apr 25 21:12:32 2022
+# Process ID: 10676
+# Current directory: C:/Users/Carlton/PDC_Lab/Verilog/TCL_Scripts/FPGA/EdgeA7_UART/EdgeA7_UART.runs/synth_1
+# Command line: vivado.exe -log d_flipflop.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source d_flipflop.tcl
+# Log file: C:/Users/Carlton/PDC_Lab/Verilog/TCL_Scripts/FPGA/EdgeA7_UART/EdgeA7_UART.runs/synth_1/d_flipflop.vds
+# Journal file: C:/Users/Carlton/PDC_Lab/Verilog/TCL_Scripts/FPGA/EdgeA7_UART/EdgeA7_UART.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source d_flipflop.tcl -notrace

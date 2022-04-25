@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../EdgeA7_UART.srcs/sources_1/new/d_flipflop.v" \
+"../../../../EdgeA7_UART.srcs/sources_1/new/mux.v" \
+"../../../../EdgeA7_UART.srcs/sources_1/new/shift_reg.v" \
+"../../../../EdgeA7_UART.srcs/sim_1/new/shift_reg_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
